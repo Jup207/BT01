@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web BLE Terminal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 7 10 10-5 5V2l5 5L7 17"/></svg>
+                <h1>BLE Terminal</h1>
+            </div>
+            <div class="controls">
+                <span id="status-indicator" class="status disconnected">Disconnected</span>
+                <button id="connect-btn" class="btn primary">Connect</button>
+                <button id="disconnect-btn" class="btn danger" style="display: none;">Disconnect</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="macro-buttons">
+                <button type="button" id="macro-on-btn" class="btn success" disabled>💡 LED ON (1)</button>
+                <button type="button" id="macro-off-btn" class="btn danger" disabled>💡 LED OFF (0)</button>
+            </div>
+            <div id="terminal" class="terminal-container">
+                <div class="welcome-message">
+                    Welcome to Web BLE Terminal.<br>
+                    Click 'Connect' to connect to a Bluetooth Low Energy device (e.g. HM-10, ESP32 BLE).<br>
+                    Note: Web Bluetooth supports BLE only, not classic Bluetooth (HC-05/06).
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <form id="send-form" class="input-container">
+                <input type="text" id="input-msg" placeholder="Type a message to send..." autocomplete="off" disabled>
+                <button type="submit" id="send-btn" class="btn" disabled>Send</button>
+                <button type="button" id="clear-btn" class="btn secondary">Clear</button>
+            </form>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
